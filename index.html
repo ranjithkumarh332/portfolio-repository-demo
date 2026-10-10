@@ -1,0 +1,954 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ranjithkumar H - Computer Science Engineering student, software developer, and AI enthusiast.">
+    <title>Ranjithkumar H | Portfolio</title>
+
+    <style>
+        /* ---------- GLOBAL STYLES ---------- */
+        :root {
+            --bg: #080d19;
+            --card: #111a2d;
+            --text: #f3f6ff;
+            --muted: #a5b0c5;
+            --accent: #66e3ff;
+            --purple: #a78bfa;
+            --border: rgba(255,255,255,.10);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        .section {
+            padding: 90px 0;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.7rem);
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            margin-bottom: 35px;
+        }
+
+        .gradient {
+            background: linear-gradient(90deg, var(--accent), var(--purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* ---------- NAVIGATION ---------- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8,13,25,.92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            min-height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: .94rem;
+            transition: .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            color: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 7px 11px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            padding: 75px 0;
+            background:
+                radial-gradient(ellipse at 80% 20%,
+                    rgba(102,227,255,.09), transparent 40%),
+                radial-gradient(ellipse at 20% 80%,
+                    rgba(167,139,250,.09), transparent 45%);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.4fr .8fr;
+            align-items: center;
+            gap: 55px;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: .82rem;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.7rem, 6vw, 4.6rem);
+            line-height: 1.12;
+            margin: 18px 0;
+        }
+
+        .hero h2 {
+            color: var(--muted);
+            font-size: clamp(1.15rem, 3vw, 1.6rem);
+            font-weight: 500;
+        }
+
+        .hero p {
+            color: var(--muted);
+            margin: 22px 0 28px;
+            max-width: 600px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--accent);
+            border-radius: 9px;
+            padding: 11px 20px;
+            font-weight: bold;
+            transition: .25s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #07101b;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102,227,255,.13);
+        }
+
+        .btn-outline {
+            color: var(--accent);
+        }
+
+        .profile-card {
+            border: 1px solid var(--border);
+            background: linear-gradient(145deg, #142139, #0c1323);
+            border-radius: 24px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 25px 70px rgba(0,0,0,.2);
+        }
+
+        .avatar {
+            width: 145px;
+            height: 145px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 3.6rem;
+            font-weight: bold;
+            color: var(--bg);
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+        }
+
+        .profile-card p {
+            margin: 6px 0;
+        }
+
+        .profile-card .muted {
+            color: var(--muted);
+        }
+
+        .status {
+            display: inline-block;
+            border: 1px solid rgba(102,227,255,.25);
+            border-radius: 20px;
+            padding: 5px 12px;
+            margin-top: 15px;
+            color: var(--accent);
+            font-size: .8rem;
+        }
+
+        /* ---------- ABOUT ---------- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 35px;
+        }
+
+        .panel {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .panel p {
+            color: var(--muted);
+            margin-top: 12px;
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .fact {
+            padding: 18px;
+            border-radius: 12px;
+            background: rgba(255,255,255,.035);
+            border: 1px solid var(--border);
+        }
+
+        .fact strong {
+            display: block;
+            color: var(--accent);
+            font-size: 1.3rem;
+        }
+
+        .fact span {
+            color: var(--muted);
+            font-size: .9rem;
+        }
+
+        /* ---------- SKILLS ---------- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card, .project-card, .achievement-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 25px;
+            transition: .25s;
+        }
+
+        .skill-card:hover, .project-card:hover,
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102,227,255,.5);
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+
+        .skill-card p, .project-card p,
+        .achievement-card p {
+            color: var(--muted);
+            margin-top: 10px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            font-size: .8rem;
+            padding: 5px 10px;
+            border-radius: 7px;
+            background: rgba(102,227,255,.08);
+            color: var(--accent);
+            border: 1px solid rgba(102,227,255,.12);
+        }
+
+        /* ---------- PROJECTS ---------- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .project-label {
+            font-size: .75rem;
+            color: var(--purple);
+            border: 1px solid rgba(167,139,250,.3);
+            border-radius: 20px;
+            padding: 4px 9px;
+        }
+
+        .project-links {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .project-links a {
+            color: var(--accent);
+            font-size: .9rem;
+        }
+
+        /* ---------- EDUCATION / ACHIEVEMENTS ---------- */
+        .timeline {
+            border-left: 2px solid rgba(102,227,255,.35);
+            margin-left: 10px;
+            padding-left: 25px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 28px;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: -33px;
+            top: 8px;
+            width: 13px;
+            height: 13px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-item p {
+            color: var(--muted);
+            margin-top: 5px;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        /* ---------- CONTACT ---------- */
+        .contact-box {
+            text-align: center;
+            max-width: 760px;
+            margin: auto;
+        }
+
+        .contact-box p {
+            color: var(--muted);
+            margin: 15px 0 25px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 25px 0;
+            color: var(--muted);
+            text-align: center;
+            font-size: .9rem;
+        }
+
+        /* ---------- RESPONSIVE DESIGN ---------- */
+        @media (max-width: 800px) {
+            .hero-grid, .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-card {
+                max-width: 420px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                padding: 20px 5%;
+                background: #0d1424;
+                border-bottom: 1px solid var(--border);
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .skills-grid, .projects-grid,
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .facts {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Accessibility: reduce animation when requested */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav class="container">
+            <a class="logo" href="#home">RK<span class="gradient">.</span></a>
+
+            <button class="menu-btn" id="menuBtn"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false">☰</button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+
+                <div>
+                    <span class="eyebrow">Welcome to my portfolio</span>
+
+                    <h1>Hi, I'm <span class="gradient">
+                        Ranjithkumar H</span>
+                    </h1>
+
+                    <h2>Computer Science Student | Aspiring Software Engineer</h2>
+
+                    <p>
+                        I am a Computer Science Engineering student passionate
+                        about software development, artificial intelligence,
+                        problem-solving, and building technology that solves
+                        real-world problems.
+                    </p>
+
+                    <div class="buttons">
+                        <a class="btn btn-primary" href="#projects">
+                            Explore My Work →
+                        </a>
+
+                        <a class="btn btn-outline" href="#contact">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <!-- Replace RK with your photo if desired -->
+                    <div class="avatar">RK</div>
+
+                    <h2>Ranjithkumar H</h2>
+                    <p class="muted">B.E. Computer Science and Engineering</p>
+                    <p class="muted">KPR Institute of Engineering and Technology</p>
+
+                    <div class="status">● Open to Learning & Opportunities</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section class="section" id="about">
+            <div class="container">
+                <h2 class="section-title">About <span class="gradient">Me</span></h2>
+                <p class="section-subtitle">
+                    A little about my journey and goals.
+                </p>
+
+                <div class="about-grid">
+                    <div class="panel">
+                        <h3>Who am I?</h3>
+
+                        <p>
+                            I am a CSE student who enjoys exploring new
+                            technologies and turning ideas into practical
+                            applications. I am developing my programming,
+                            data structures, algorithms, and software
+                            engineering skills.
+                        </p>
+
+                        <p>
+                            My interests include Java development, AI/ML,
+                            full-stack applications, and participating in
+                            hackathons. My long-term goal is to become a
+                            software development engineer at a leading
+                            product-based company.
+                        </p>
+                    </div>
+
+                    <div class="facts">
+                        <div class="fact">
+                            <strong>2029</strong>
+                            <span>Expected Graduation</span>
+                        </div>
+
+                        <div class="fact">
+                            <strong>CSE</strong>
+                            <span>Department</span>
+                        </div>
+
+                        <div class="fact">
+                            <strong>AI/ML</strong>
+                            <span>Interest Area</span>
+                        </div>
+
+                        <div class="fact">
+                            <strong>SDE</strong>
+                            <span>Career Goal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section class="section" id="skills">
+            <div class="container">
+                <h2 class="section-title">My <span class="gradient">Skills</span></h2>
+                <p class="section-subtitle">
+                    Technologies I use and areas I am learning.
+                </p>
+
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="card-icon">💻</div>
+                        <h3>Programming</h3>
+                        <p>Programming fundamentals and problem-solving.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">C</span>
+                            <span class="tag">Java — Learning</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="card-icon">🌐</div>
+                        <h3>Web Development</h3>
+                        <p>Building interactive web applications.</p>
+                        <div class="tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">Flask</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="card-icon">🤖</div>
+                        <h3>AI & Machine Learning</h3>
+                        <p>Exploring intelligent applications and ML models.</p>
+                        <div class="tags">
+                            <span class="tag">ML Fundamentals</span>
+                            <span class="tag">AI Integration</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="card-icon">🗄️</div>
+                        <h3>Database & Tools</h3>
+                        <p>Working with data, version control, and development tools.</p>
+                        <div class="tags">
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">Git</span>
+                            <span class="tag">GitHub</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="card-icon">📊</div>
+                        <h3>Data Analytics</h3>
+                        <p>Learning to convert data into useful insights.</p>
+                        <div class="tags">
+                            <span class="tag">Power BI</span>
+                            <span class="tag">Data Visualization</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="card-icon">🧠</div>
+                        <h3>Problem Solving</h3>
+                        <p>Strengthening logical thinking through coding practice.</p>
+                        <div class="tags">
+                            <span class="tag">DSA — Learning</span>
+                            <span class="tag">Algorithms</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section class="section" id="projects">
+            <div class="container">
+                <h2 class="section-title">Featured <span class="gradient">Projects</span></h2>
+                <p class="section-subtitle">
+                    A selection of projects I have worked on.
+                </p>
+
+                <div class="projects-grid">
+
+                    <article class="project-card">
+                        <div class="project-top">
+                            <div class="card-icon">✈️</div>
+                            <span class="project-label">Travel Tech</span>
+                        </div>
+
+                        <h3>TripMind AI</h3>
+
+                        <p>
+                            An AI-assisted travel orchestration platform
+                            designed to help users plan trips, manage
+                            bookings, and respond to travel disruptions
+                            through itinerary replanning.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Flask</span>
+                            <span class="tag">MongoDB</span>
+                            <span class="tag">AI</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/sabariap08/Tripmind_ai"
+                               target="_blank" rel="noopener noreferrer">
+                                GitHub Repository ↗
+                            </a>
+                            <a href="https://tripmind-ai-u1dd.onrender.com/pages/trip.html"
+                               target="_blank" rel="noopener noreferrer">
+                                Live Demo ↗
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-top">
+                            <div class="card-icon">🎙️</div>
+                            <span class="project-label">AI Assistant</span>
+                        </div>
+
+                        <h3>VoxAssist AI</h3>
+
+                        <p>
+                            A wearable-assistant concept focused on improving
+                            unclear speech, supporting translation, and
+                            enabling voice-based smart-device interactions.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">AI</span>
+                            <span class="tag">Speech Processing</span>
+                            <span class="tag">Translation</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="#contact">Ask Me About This Project →</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-top">
+                            <div class="card-icon">🌾</div>
+                            <span class="project-label">Agriculture AI</span>
+                        </div>
+
+                        <h3>Satellite-Based Crop Classification</h3>
+
+                        <p>
+                            An agriculture-focused project exploring
+                            satellite imagery and spectral features
+                            to distinguish crop types and support
+                            crop-monitoring decisions.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Satellite Imagery</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Remote Sensing</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="#contact">Ask Me About This Project →</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-top">
+                            <div class="card-icon">🔍</div>
+                            <span class="project-label">Computer Vision</span>
+                        </div>
+
+                        <h3>Image Authenticity Classifier</h3>
+
+                        <p>
+                            An image-classification project exploring
+                            the use of deep learning to distinguish
+                            between real and manipulated or synthetic
+                            images.
+                        </p>
+
+                        <div class="tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">OpenCV</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="#contact">Ask Me About This Project →</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section class="section" id="education">
+            <div class="container">
+                <h2 class="section-title">My <span class="gradient">Education</span></h2>
+                <p class="section-subtitle">My academic journey.</p>
+
+                <div class="panel">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h3>B.E. Computer Science and Engineering</h3>
+                            <p>KPR Institute of Engineering and Technology</p>
+                            <p>2025 – 2029 (Expected)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACHIEVEMENTS SECTION -->
+        <section class="section" id="achievements">
+            <div class="container">
+                <h2 class="section-title">Achievements & <span class="gradient">Experience</span></h2>
+                <p class="section-subtitle">
+                    Experiences that have helped me grow.
+                </p>
+
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <div class="card-icon">🏆</div>
+                        <h3>Electrothon — First Prize</h3>
+                        <p>
+                            Secured first prize in a 24-hour hackathon
+                            at Rathinam Technical Campus.
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <div class="card-icon">🚀</div>
+                        <h3>IDEATHON — Top 10</h3>
+                        <p>
+                            Reached the Top 10 among 220 teams at
+                            an ideathon hosted by SNS Rajalakshmi
+                            College of Arts and Science.
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <div class="card-icon">👨‍💻</div>
+                        <h3>Technical Club Leadership</h3>
+                        <p>
+                            Contributing as Technical Lead at the
+                            Ignitron technical club.
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <div class="card-icon">🛠️</div>
+                        <h3>Development & Technical Support</h3>
+                        <p>
+                            Gaining practical experience through
+                            software development, internship work,
+                            and technical event support.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="section" id="contact">
+            <div class="container contact-box">
+                <h2 class="section-title">
+                    Let's <span class="gradient">Connect</span>
+                </h2>
+
+                <p>
+                    I am interested in software engineering, AI projects,
+                    hackathons, internships, and opportunities to collaborate.
+                    Feel free to connect with me.
+                </p>
+
+                <div class="contact-links">
+                    <a class="btn btn-primary"
+                       href="https://www.linkedin.com/in/ranjithkumar-h-773965375/"
+                       target="_blank" rel="noopener noreferrer">
+                        LinkedIn ↗
+                    </a>
+
+                    <a class="btn btn-outline"
+                       href="https://github.com/sabariap08"
+                       target="_blank" rel="noopener noreferrer">
+                        GitHub ↗
+                    </a>
+
+                    <!-- Replace with your actual email address -->
+                    <a class="btn btn-outline"
+                       href="mailto:YOUR_EMAIL@example.com">
+                        Email Me ✉
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>
+                © <span id="year"></span> Ranjithkumar H.
+                Built with HTML, CSS & JavaScript.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Automatically update the copyright year
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+
+        // Toggle the mobile navigation menu
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+            const isOpen = navLinks.classList.toggle("open");
+            menuBtn.setAttribute("aria-expanded", String(isOpen));
+            menuBtn.textContent = isOpen ? "✕" : "☰";
+        });
+
+        // Close the menu after clicking a navigation link
+        document.querySelectorAll("#navLinks a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("open");
+                menuBtn.setAttribute("aria-expanded", "false");
+                menuBtn.textContent = "☰";
+            });
+        });
+    </script>
+
+</body>
+</html>
